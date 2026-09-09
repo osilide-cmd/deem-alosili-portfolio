@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-export const metadata: Metadata = { title: 'Noura — Content Creator & Strategist', description: 'Story-led social content that moves people.' };
+export const metadata: Metadata = { title: 'Deem Alosili — Content Creator & Strategist', description: 'Story-led social content that moves people.' };
 
 export default function RootLayout({
   children,
