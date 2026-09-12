@@ -43,6 +43,7 @@ main{display:flex;flex-direction:column}main>.site-nav{order:0}main>.hero-sectio
 
 /* Arabic is revealed from its natural starting edge (right to left). */
 .localization-pair b{direction:rtl;unicode-bidi:plaintext;clip-path:inset(0 0 0 100%)}
+@media(max-width:900px){footer#contact .contact-links{width:auto;flex-direction:row!important;align-items:center;gap:14px!important}footer#contact .contact-links a{width:62px!important;height:62px!important;padding:0!important}}
 @keyframes local-type-one{0%,4%{clip-path:inset(0 0 0 100%)}19%,29%{clip-path:inset(0 0 0 0)}30%,100%{clip-path:inset(0 0 0 100%)}}
 @keyframes local-type-two{0%,36%{clip-path:inset(0 0 0 100%)}51%,62%{clip-path:inset(0 0 0 0)}63%,100%{clip-path:inset(0 0 0 100%)}}
 @keyframes local-type-three{0%,69%{clip-path:inset(0 0 0 100%)}84%,95%{clip-path:inset(0 0 0 0)}96%,100%{clip-path:inset(0 0 0 100%)}}
