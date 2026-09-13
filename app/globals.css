@@ -43,6 +43,7 @@ main{display:flex;flex-direction:column}main>.site-nav{order:0}main>.hero-sectio
 
 /* Arabic is revealed from its natural starting edge (right to left). */
 .localization-rotator{min-height:110px}.localization-pair{flex-direction:column;align-items:flex-start;gap:5px}.localization-pair span:after{display:none}.localization-pair b{align-self:flex-end;direction:rtl;unicode-bidi:plaintext;clip-path:inset(0 0 0 100%)}
+.localization-pair b{clip-path:none!important;animation:none!important}.pair-one{animation:local-pair-one-visible 15s steps(1,end) infinite}.pair-two{animation:local-pair-two-visible 15s steps(1,end) infinite}.pair-three{animation:local-pair-three-visible 15s steps(1,end) infinite}@keyframes local-pair-one-visible{0%,33%{opacity:1}34%,100%{opacity:0}}@keyframes local-pair-two-visible{0%,33%{opacity:0}34%,66%{opacity:1}67%,100%{opacity:0}}@keyframes local-pair-three-visible{0%,66%{opacity:0}67%,100%{opacity:1}}
 @media(max-width:900px){footer#contact .contact-links{width:auto;flex-direction:row!important;align-items:center;gap:14px!important}footer#contact .contact-links a{width:62px!important;height:62px!important;padding:0!important}}
 @keyframes local-type-one{0%,4%{clip-path:inset(0 0 0 100%)}19%,29%{clip-path:inset(0 0 0 0)}30%,100%{clip-path:inset(0 0 0 100%)}}
 @keyframes local-type-two{0%,36%{clip-path:inset(0 0 0 100%)}51%,62%{clip-path:inset(0 0 0 0)}63%,100%{clip-path:inset(0 0 0 100%)}}
