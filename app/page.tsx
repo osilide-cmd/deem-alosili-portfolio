@@ -55,7 +55,7 @@ export default function Home() {
             <div className="proof-typewriter" aria-label="Animated proofreading corrections">
               <p className="proof-edit proof-edit-one"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">نفذت الكمية</span><span className="proof-erased">نفذت الكمية</span><span className="proof-typed-correct">نفدت الكمية</span><i aria-hidden="true" /></p>
               <p className="proof-edit proof-edit-two"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">تم الإرسال</span><span className="proof-erased">تم الإرسال</span><span className="proof-typed-correct">أرسلنا</span><i aria-hidden="true" /></p>
-              <p className="proof-edit proof-edit-three"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">المسمى الوظيفي</span><span className="proof-erased">المسمى الوظيفي</span><span className="proof-typed-correct">الاسم الوظيفي</span><i aria-hidden="true" /></p>
+              <p className="proof-edit proof-edit-three"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">أنا كصانع محتوى أقول لك...</span><span className="proof-erased proof-erased-partial"><span>أنا </span><span className="proof-struck">كصانع</span><span> محتوى أقول لك...</span></span><span className="proof-typed-correct">أنا صانع محتوى أقول لك...</span><i aria-hidden="true" /></p>
             </div>
           </div>
         </div>
