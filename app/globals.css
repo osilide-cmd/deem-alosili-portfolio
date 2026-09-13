@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* Mobile work introduction: allow both title systems enough breathing room. */
+@media(max-width:560px){main[dir="rtl"] .work-section .work-intro{box-sizing:border-box!important;width:100%!important;max-width:none!important;min-height:0!important;padding:28px 20px 34px!important;overflow:hidden!important}main[dir="rtl"] .work-section .work-intro h2{margin:0 0 24px!important;font-size:clamp(30px,9vw,42px)!important;line-height:1.15!important}main[dir="rtl"] .work-section .work-intro h2>.xb-shafigh{white-space:normal!important;overflow-wrap:anywhere;text-align:right!important}main[dir="rtl"] .work-section .work-intro h2>.english-title{margin-top:13px!important;font-size:clamp(31px,10vw,43px)!important;line-height:1.04!important;text-align:left!important}main[dir="rtl"] .work-section .work-intro>p:last-child{max-width:none!important;margin:0!important;font-size:17px!important;line-height:1.8!important;text-align:right!important}}
 /* Keep the struck wording visible while its corrected form is shown. */
 .proof-edit-three .proof-erased{animation:proof-keep-correction-three 15s steps(1,end) infinite!important}.proof-edit-three .proof-typed-wrong{animation:proof-type-wrong-three 15s steps(18,end) infinite!important}@keyframes proof-keep-correction-three{0%,82%{opacity:0}83%,97%{opacity:1}98%,100%{opacity:0}}
 .proof-edit-three .proof-erased[style]{animation:none!important;opacity:1!important}
