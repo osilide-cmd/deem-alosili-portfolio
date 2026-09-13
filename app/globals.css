@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+main footer#contact .contact-links a{background:#f7b6c9!important;border-color:#a94f70!important;color:#3d1d2b!important;box-shadow:4px 4px 0 #ffd8bd!important}main footer#contact .contact-links a:hover{background:#e98eae!important;color:#3d1d2b!important}
 main footer#contact{background:linear-gradient(135deg,#e2fbf2,#e6ddff)!important;color:#17362c!important;border-top:2px solid #99c9ba}main footer#contact>p{color:#17362c!important}main footer#contact .contact-links a{border-color:#317c69!important;color:#17362c!important;background:#fffdf8!important;box-shadow:4px 4px 0 #ffd8bd}
 
 /* Experimental digital redesign — typography intentionally preserved. */
