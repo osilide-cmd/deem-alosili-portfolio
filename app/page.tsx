@@ -94,6 +94,14 @@ export default function Home() {
       </div>
       <div className="journey-map journey-puzzle" aria-label="Interactive creative content puzzle">
         <p className="puzzle-instruction">{localizationLanguage === 'ar' ? 'اختاري قطعة لاستكشاف الرحلة' : 'Select a piece to explore the journey'}</p>
+        <svg className="puzzle-defs" aria-hidden="true" focusable="false"><defs>
+          <clipPath id="puzzle-piece-1" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+          <clipPath id="puzzle-piece-2" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+          <clipPath id="puzzle-piece-3" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+          <clipPath id="puzzle-piece-4" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+          <clipPath id="puzzle-piece-5" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+          <clipPath id="puzzle-piece-6" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
+        </defs></svg>
         <div className="puzzle-grid">
           {journeySteps.map((step, index) => <button key={step.number} type="button" className={'puzzle-piece piece-' + (index + 1) + (activeJourneyStep === step.number ? ' is-active' : '')} onClick={() => setActiveJourneyStep(step.number)} aria-pressed={activeJourneyStep === step.number}>
             <span className="puzzle-number">{step.number}</span><img src={routeImages[step.number]} alt="" /><strong className="xb-shafigh">{step.label}</strong>
