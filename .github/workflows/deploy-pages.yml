@@ -33,7 +33,7 @@ jobs:
       - run: pnpm build
       - name: Set paths for the project site
         run: |
-          find dist/client -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.rsc' \) -exec sed -i 's|"/_next/|"/deem-alosili-portfolio/_next/|g; s|"/case-studies/|"/deem-alosili-portfolio/case-studies/|g; s|"/localization-posts/|"/deem-alosili-portfolio/localization-posts/|g; s|"/fonts/|"/deem-alosili-portfolio/fonts/|g' {} +
+          find dist/client -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.rsc' \) -exec sed -i 's|"/_next/|"/deem-alosili-portfolio/_next/|g; s|"/case-studies/|"/deem-alosili-portfolio/case-studies/|g; s|"/localization-posts/|"/deem-alosili-portfolio/localization-posts/|g; s|"/fonts/|"/deem-alosili-portfolio/fonts/|g; s|url(/fonts/|url(/deem-alosili-portfolio/fonts/|g' {} +
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
