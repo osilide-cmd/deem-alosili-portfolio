@@ -18,7 +18,11 @@ const routeImages: Record<string, string> = {
 export default function Home() {
   const [activeCase, setActiveCase] = useState<'newroom' | 'arabicVids' | null>(null);
   const [localizationLanguage, setLocalizationLanguage] = useState<'en' | 'ar'>('ar');
+  const [activeJourneyStep, setActiveJourneyStep] = useState('01');
   const scrollToWork = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+  const journeySteps = localizationLanguage === 'ar'
+    ? [{ number: '01', label: 'نجيب أفكار', detail: 'نحوّل الملاحظة إلى فكرة واضحة.' }, { number: '02', label: 'نكتب', detail: 'نصنع قصة وسيناريو مناسبين.' }, { number: '03', label: 'نصور', detail: 'نحوّل الفكرة إلى لحظات مرئية.' }, { number: '04', label: 'نمنتج', detail: 'نرتّب اللقطات بإيقاع يخدم الرسالة.' }, { number: '05', label: 'ننشر', detail: 'نجهز المحتوى للمنصة والجمهور.' }, { number: '06', label: 'نشوف التفاعل', detail: 'نقرأ التفاعل ونطوّر القادم.' }]
+    : [{ number: '01', label: 'Brainstorm', detail: 'Turn a daily observation into a clear idea.' }, { number: '02', label: 'Script', detail: 'Build a story and a useful script.' }, { number: '03', label: 'Shoot', detail: 'Turn the idea into visual moments.' }, { number: '04', label: 'Edit', detail: 'Shape the footage around the message.' }, { number: '05', label: 'Publish', detail: 'Prepare content for platform and audience.' }, { number: '06', label: 'Review', detail: 'Read the response and improve what follows.' }];
   return <main dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>
     <nav className="site-nav"><div className="nav-links"><a href="#creation-title">{localizationLanguage === 'ar' ? 'الأعمال' : 'Work'}</a><a href="#contact">{localizationLanguage === 'ar' ? 'تواصل معي' : 'Contact me'}</a></div><button type="button" className="site-language-toggle" onClick={() => setLocalizationLanguage(localizationLanguage === 'ar' ? 'en' : 'ar')}>{localizationLanguage === 'ar' ? 'ENG' : 'AR'}</button><Button variant="ghost" size="icon" className="menu-button" aria-label="Open menu"><Menu /></Button></nav>
     <section id="top" className="hero-section"><div className="hero-headline"><p className="hero-name">Deem Alosili<span>.</span></p>{localizationLanguage === 'ar' ? <h2 className="hero-role hero-secondary-title">صانعة محتوى</h2> : <><h1>Stories that<br /><em>move people.</em></h1><p className="hero-role">Content Creator · Strategist</p></>}</div><div className="hero-bottom"><p>{localizationLanguage === 'ar' ? 'أحوّل اللحظات اليومية إلى محتوى يجذب ويؤثر ويحرّك.' : 'I turn everyday moments into content people stop, feel, and act on.'}</p><button className="round-action" onClick={scrollToWork} aria-label="View selected work"><ArrowDownRight /></button></div><div className="orb orb-one" /><div className="orb orb-two" /></section>
@@ -74,15 +78,14 @@ export default function Home() {
         <h2 id="creation-title"><span className="xb-shafigh">صناعة المحتوى</span><span className="english-title">Content Creation</span></h2>
         <p className="creation-subtitle xb-shafigh" lang="ar" dir="rtl">من الفكرة إلى المنتج المرئي</p>
       </div>
-      <div className="journey-map" aria-label="Creative journey from brainstorming to feedback">
-        <svg viewBox="0 0 720 430" role="img" aria-labelledby="journey-map-title journey-map-desc">
-          <title id="journey-map-title">Creative content journey</title><desc id="journey-map-desc">A winding map connecting brainstorming, scripting, shooting, production, publishing, and feedback.</desc>
-          <path className="journey-path" d="M72 110 C155 40 234 182 314 102 S475 42 534 135 S658 218 580 282 S396 364 318 290 S170 365 92 304" />
-          <path className="journey-landmark landmark-star" d="M214 52l8 18 19 2-14 13 4 19-17-10-17 10 4-19-14-13 19-2z" />
-          <path className="journey-landmark landmark-flag" d="M588 70v44m0-44 29 10-29 10" />
-          <path className="journey-landmark landmark-spark" d="M490 336v-28m-14 14h28" />
-          {(localizationLanguage === 'ar' ? [[72,110,'01','نجيب أفكار'],[314,102,'02','نكتب'],[534,135,'03','نصور'],[580,282,'04','نمنتج'],[318,290,'05','ننشر'],[92,304,'06','نشوف التفاعل']] : [[72,110,'01','Brainstorming'],[314,102,'02','Scripting'],[534,135,'03','Shooting'],[580,282,'04','Production'],[318,290,'05','Publishing'],[92,304,'06','Feedback']]).map(([x,y,number,label]) => <g className="journey-stop" key={String(number)} transform={`translate(${x} ${y})`}><circle className="journey-path-break" r="35" /><image className="journey-icon" href={routeImages[number]} x="-29" y="-29" width="58" height="58" /><text y="-41" textAnchor="middle">{number}</text><text y="55" textAnchor="middle">{label}</text></g>)}
-        </svg>
+      <div className="journey-map journey-puzzle" aria-label="Interactive creative content puzzle">
+        <p className="puzzle-instruction">{localizationLanguage === 'ar' ? 'اختاري قطعة لاستكشاف الرحلة' : 'Select a piece to explore the journey'}</p>
+        <div className="puzzle-grid">
+          {journeySteps.map((step, index) => <button key={step.number} type="button" className={'puzzle-piece piece-' + (index + 1) + (activeJourneyStep === step.number ? ' is-active' : '')} onClick={() => setActiveJourneyStep(step.number)} aria-pressed={activeJourneyStep === step.number}>
+            <span className="puzzle-number">{step.number}</span><img src={routeImages[step.number]} alt="" /><strong className="xb-shafigh">{step.label}</strong>
+          </button>)}
+        </div>
+        <p className="puzzle-detail">{journeySteps.find((step) => step.number === activeJourneyStep)?.detail}</p>
       </div>
     </section>
     <section id="work" className="work-section">
