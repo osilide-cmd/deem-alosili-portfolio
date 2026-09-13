@@ -37,6 +37,8 @@ export default function Home() {
   const journeySteps = localizationLanguage === 'ar'
     ? [{ number: '01', label: 'نجيب أفكار', detail: 'نحوّل الملاحظة إلى فكرة واضحة.' }, { number: '02', label: 'نكتب', detail: 'نصنع قصة وسيناريو مناسبين.' }, { number: '03', label: 'نصور', detail: 'نحوّل الفكرة إلى لحظات مرئية.' }, { number: '04', label: 'نمنتج', detail: 'نرتّب اللقطات بإيقاع يخدم الرسالة.' }, { number: '05', label: 'ننشر', detail: 'نجهز المحتوى للمنصة والجمهور.' }, { number: '06', label: 'نشوف التفاعل', detail: 'نقرأ التفاعل ونطوّر القادم.' }]
     : [{ number: '01', label: 'Brainstorm', detail: 'Turn a daily observation into a clear idea.' }, { number: '02', label: 'Script', detail: 'Build a story and a useful script.' }, { number: '03', label: 'Shoot', detail: 'Turn the idea into visual moments.' }, { number: '04', label: 'Edit', detail: 'Shape the footage around the message.' }, { number: '05', label: 'Publish', detail: 'Prepare content for platform and audience.' }, { number: '06', label: 'Review', detail: 'Read the response and improve what follows.' }];
+  const puzzleLayout = [[0, 0], [220, 0], [440, 0], [0, 160], [220, 160], [440, 160]];
+  const puzzlePath = (x: number, y: number) => `M${x} ${y}H${x + 82}C${x + 82} ${y + 22} ${x + 138} ${y + 22} ${x + 138} ${y}H${x + 220}V${y + 55}C${x + 190} ${y + 55} ${x + 190} ${y + 105} ${x + 220} ${y + 105}V${y + 160}H${x + 138}C${x + 138} ${y + 130} ${x + 82} ${y + 130} ${x + 82} ${y + 160}H${x}V${y + 105}C${x + 30} ${y + 105} ${x + 30} ${y + 55} ${x} ${y + 55}Z`;
   return <main dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>
     <nav className="site-nav"><div className="nav-links"><a href="#creation-title">{localizationLanguage === 'ar' ? 'الأعمال' : 'Work'}</a><a href="#contact">{localizationLanguage === 'ar' ? 'تواصل معي' : 'Contact me'}</a></div><button type="button" className="site-language-toggle" onClick={() => setLocalizationLanguage(localizationLanguage === 'ar' ? 'en' : 'ar')}>{localizationLanguage === 'ar' ? 'ENG' : 'AR'}</button><Button variant="ghost" size="icon" className="menu-button" aria-label="Open menu"><Menu /></Button></nav>
     <section id="top" className="hero-section"><div className="hero-headline"><p className="hero-name">Deem Alosili<span>.</span></p>{localizationLanguage === 'ar' ? <h2 className="hero-role hero-secondary-title">صانعة محتوى</h2> : <><h1>Stories that<br /><em>move people.</em></h1><p className="hero-role">Content Creator · Strategist</p></>}</div><div className="hero-bottom"><p>{localizationLanguage === 'ar' ? 'أحوّل اللحظات اليومية إلى محتوى يجذب ويؤثر ويحرّك.' : 'I turn everyday moments into content people stop, feel, and act on.'}</p><button className="round-action" onClick={scrollToWork} aria-label="View selected work"><ArrowDownRight /></button></div><div className="orb orb-one" /><div className="orb orb-two" /></section>
@@ -94,19 +96,11 @@ export default function Home() {
       </div>
       <div className="journey-map journey-puzzle" aria-label="Interactive creative content puzzle">
         <p className="puzzle-instruction">{localizationLanguage === 'ar' ? 'اختاري قطعة لاستكشاف الرحلة' : 'Select a piece to explore the journey'}</p>
-        <svg className="puzzle-defs" aria-hidden="true" focusable="false"><defs>
-          <clipPath id="puzzle-piece-1" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-          <clipPath id="puzzle-piece-2" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-          <clipPath id="puzzle-piece-3" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-          <clipPath id="puzzle-piece-4" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-          <clipPath id="puzzle-piece-5" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-          <clipPath id="puzzle-piece-6" clipPathUnits="objectBoundingBox"><path d="M0,0H.42C.42,.08,.58,.08,.58,0H1V.42C.92,.42,.92,.58,1,.58V1H.58C.58,.92,.42,.92,.42,1H0V.58C.08,.58,.08,.42,0,.42Z" /></clipPath>
-        </defs></svg>
-        <div className="puzzle-grid">
-          {journeySteps.map((step, index) => <button key={step.number} type="button" className={'puzzle-piece piece-' + (index + 1) + (activeJourneyStep === step.number ? ' is-active' : '')} onClick={() => setActiveJourneyStep(step.number)} aria-pressed={activeJourneyStep === step.number}>
-            <span className="puzzle-number">{step.number}</span><img src={routeImages[step.number]} alt="" /><strong className="xb-shafigh">{step.label}</strong>
-          </button>)}
-        </div>
+        <svg className="puzzle-assembly" viewBox="0 0 660 320" role="group" aria-label={localizationLanguage === 'ar' ? 'قطع رحلة صناعة المحتوى' : 'Content creation journey pieces'}>
+          {journeySteps.map((step, index) => { const [x, y] = puzzleLayout[index]; return <g key={step.number} className={'puzzle-piece-svg piece-' + (index + 1) + (activeJourneyStep === step.number ? ' is-active' : '')} role="button" tabIndex={0} aria-label={step.label} aria-pressed={activeJourneyStep === step.number} onClick={() => setActiveJourneyStep(step.number)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setActiveJourneyStep(step.number); } }}>
+            <path className="puzzle-tile" d={puzzlePath(x, y)} /><text className="puzzle-number" x={x + 110} y={y + 42} textAnchor="middle">{step.number}</text><image href={routeImages[step.number]} x={x + 83} y={y + 52} width="54" height="54" /><text className="puzzle-label xb-shafigh" x={x + 110} y={y + 132} textAnchor="middle">{step.label}</text>
+          </g>; })}
+        </svg>
         <p className="puzzle-detail">{journeySteps.find((step) => step.number === activeJourneyStep)?.detail}</p>
       </div>
     </section>
