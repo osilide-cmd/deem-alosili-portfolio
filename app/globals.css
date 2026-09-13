@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* Keep Arabic Vids performance markers around the phone, never over its screen. */
+.case-image-wrap.arabic-vids-visual{overflow:visible!important}.case-image-wrap.arabic-vids-visual .bubble-views{left:-36px!important;top:8%!important}.case-image-wrap.arabic-vids-visual .bubble-likes{left:-30px!important;right:auto!important;bottom:15%!important}.case-image-wrap.arabic-vids-visual .bubble-shares{right:-34px!important;top:43%!important}@media(max-width:780px){.case-image-wrap.arabic-vids-visual .bubble-views{left:2px!important}.case-image-wrap.arabic-vids-visual .bubble-likes{left:4px!important}.case-image-wrap.arabic-vids-visual .bubble-shares{right:2px!important}}
 main footer#contact .contact-links a{background:#f7b6c9!important;border-color:#a94f70!important;color:#3d1d2b!important;box-shadow:4px 4px 0 #ffd8bd!important}main footer#contact .contact-links a:hover{background:#e98eae!important;color:#3d1d2b!important}
 main footer#contact{background:linear-gradient(135deg,#e2fbf2,#e6ddff)!important;color:#17362c!important;border-top:2px solid #99c9ba}main footer#contact>p{color:#17362c!important}main footer#contact .contact-links a{border-color:#317c69!important;color:#17362c!important;background:#fffdf8!important;box-shadow:4px 4px 0 #ffd8bd}
 
