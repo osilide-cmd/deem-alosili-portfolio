@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowDownRight, ArrowUpRight, Check, Mail, Menu, MessageCircle, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 const newroomMetrics = [['1.1M', 'Top video views'], ['22.3K', 'Total likes'], ['19.7K', 'Views in 365 days'], ['96.9%', 'Search traffic']];
@@ -19,6 +19,20 @@ export default function Home() {
   const [activeCase, setActiveCase] = useState<'newroom' | 'arabicVids' | null>(null);
   const [localizationLanguage, setLocalizationLanguage] = useState<'en' | 'ar'>('ar');
   const [activeJourneyStep, setActiveJourneyStep] = useState('01');
+  useEffect(() => {
+    const measurementId = 'G-5S5ZC9ENJV';
+    const analyticsWindow = window as Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void };
+    analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+    analyticsWindow.gtag = (...args) => analyticsWindow.dataLayer?.push(args);
+    analyticsWindow.gtag('js', new Date());
+    analyticsWindow.gtag('config', measurementId);
+    if (!document.querySelector(`script[src*="${measurementId}"]`)) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      document.head.appendChild(script);
+    }
+  }, []);
   const scrollToWork = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   const journeySteps = localizationLanguage === 'ar'
     ? [{ number: '01', label: 'نجيب أفكار', detail: 'نحوّل الملاحظة إلى فكرة واضحة.' }, { number: '02', label: 'نكتب', detail: 'نصنع قصة وسيناريو مناسبين.' }, { number: '03', label: 'نصور', detail: 'نحوّل الفكرة إلى لحظات مرئية.' }, { number: '04', label: 'نمنتج', detail: 'نرتّب اللقطات بإيقاع يخدم الرسالة.' }, { number: '05', label: 'ننشر', detail: 'نجهز المحتوى للمنصة والجمهور.' }, { number: '06', label: 'نشوف التفاعل', detail: 'نقرأ التفاعل ونطوّر القادم.' }]
