@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* Keep the crossed-out original visible while its correction is shown. */
+.proof-edit-one .proof-erased{animation:proof-keep-original-one 15s steps(1,end) infinite!important}
+.proof-edit-two .proof-erased{animation:proof-keep-original-two 15s steps(1,end) infinite!important}
+.proof-edit-three .proof-erased{animation:proof-keep-original-three 15s steps(1,end) infinite!important}
+.proof-edit-three .proof-erased[style]{animation:proof-keep-original-three 15s steps(1,end) infinite!important;opacity:0!important}
+@keyframes proof-keep-original-one{0%,16%{opacity:0}17%,31%{opacity:1}32%,100%{opacity:0}}
+@keyframes proof-keep-original-two{0%,49%{opacity:0}50%,64%{opacity:1}65%,100%{opacity:0}}
+@keyframes proof-keep-original-three{0%,82%{opacity:0}83%,97%{opacity:1}98%,100%{opacity:0}}
 /* Reference-style physical interlocking puzzle surface. */
 .creation-journey .journey-puzzle .puzzle-assembly{background:#dedede!important;filter:drop-shadow(11px 13px 0 rgb(65 65 65 / .18))!important}
 .creation-journey .journey-puzzle .puzzle-piece-svg .puzzle-tile{fill:#fff!important;stroke:#858585!important;stroke-width:3.2!important;filter:drop-shadow(5px 6px 4px rgb(26 26 26 / .25))!important}
