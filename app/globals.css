@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* Keep the crossed-out original visible for the complete correction phase. */
+.proofreading-section .proof-editor .editor-body .proof-typewriter .proof-edit-one .proof-erased{animation:proof-keep-final-one 15s steps(1,end) infinite!important}
+.proofreading-section .proof-editor .editor-body .proof-typewriter .proof-edit-two .proof-erased{animation:proof-keep-final-two 15s steps(1,end) infinite!important}
+.proofreading-section .proof-editor .editor-body .proof-typewriter .proof-edit-three .proof-erased{animation:proof-keep-final-three 15s steps(1,end) infinite!important}
+@keyframes proof-keep-final-one{0%,16%{opacity:0}17%,31%{opacity:1}32%,100%{opacity:0}}
+@keyframes proof-keep-final-two{0%,49%{opacity:0}50%,64%{opacity:1}65%,100%{opacity:0}}
+@keyframes proof-keep-final-three{0%,82%{opacity:0}83%,97%{opacity:1}98%,100%{opacity:0}}
 /* Keep the crossed-out original visible while its correction is shown. */
 .proof-edit-one .proof-erased{animation:proof-keep-original-one 15s steps(1,end) infinite!important}
 .proof-edit-two .proof-erased{animation:proof-keep-original-two 15s steps(1,end) infinite!important}
