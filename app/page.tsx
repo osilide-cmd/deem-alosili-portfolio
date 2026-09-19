@@ -41,25 +41,23 @@ export default function Home() {
         <div className="localization-topline">
           <p className="eyebrow">{localizationLanguage === 'ar' ? 'سعودة المنتج' : 'SAUDI LOCALIZATION'}</p>
         </div>
-        <h2 id="localization-title"><span className="xb-shafigh">سعودة المنتج</span><span className="english-title">Localization</span></h2>
+        <h2 id="localization-title">{localizationLanguage === 'ar' ? <span className="xb-shafigh">سعودة المنتج</span> : <span className="english-title">Localization</span>}</h2>
         <p className="localization-description">{localizationLanguage === 'ar' ? 'أكتب المحتوى من قصص وأفكار وسيناريوهات كتابة تخاطب السعودي' : 'I write stories, ideas, and scripts that speak to Saudi audiences.'}</p>
       </div>
       <div className="localization-demo" aria-label="Saudi localization writing demo">
         <p className="terminal-label">LOCALIZATION IN ACTION</p>
         <div className="localization-rotator" aria-live="polite">
-          <p className="localization-pair pair-one"><span>Don’t Take it Seriously</span><b className="xb-shafigh" lang="ar">لا تشـــــــــــــدها</b></p>
-          <p className="localization-pair pair-two"><span>However!</span><b className="xb-shafigh" lang="ar">بس!!</b></p>
-          <p className="localization-pair pair-three"><span>Just Enjoy Doing it</span><b className="xb-shafigh" lang="ar">ياخي سويه وانبسط</b></p>
+          {localizationLanguage === 'ar' ? <><p className="localization-pair pair-one"><span>Don’t Take it Seriously</span><b className="xb-shafigh" lang="ar">لا تشـــــــــــــدها</b></p><p className="localization-pair pair-two"><span>However!</span><b className="xb-shafigh" lang="ar">بس!!</b></p><p className="localization-pair pair-three"><span>Just Enjoy Doing it</span><b className="xb-shafigh" lang="ar">ياخي سويه وانبسط</b></p></> : <><p className="localization-pair pair-one"><span>Don’t Take it Seriously</span><b>Keep it light</b></p><p className="localization-pair pair-two"><span>However!</span><b>Still,</b></p><p className="localization-pair pair-three"><span>Just Enjoy Doing it</span><b>Have fun with it</b></p></>}
         </div>
       </div>
-      <section className="saudi-post-showcase" aria-label="Saudi-styled social posts">
+      {localizationLanguage === 'ar' && <section className="saudi-post-showcase" aria-label="Saudi-styled social posts">
         <h3 className="xb-shafigh">حتى المنشورات بطابع سعودي</h3>
         <div className="saudi-post-stack">
           <img src="/localization-posts/saudi-1.png" alt="Saudi-styled social post one" />
           <img src="/localization-posts/saudi-2.png" alt="Saudi-styled social post two" />
           <img src="/localization-posts/saudi-3.png" alt="Saudi-styled social post three" />
         </div>
-      </section>
+      </section>}
     </section>
     <section className={'proofreading-section ' + (localizationLanguage === 'ar' ? 'is-ar' : 'is-en')} aria-labelledby="proofreading-title" dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>
       <div className="proofreading-visual" aria-label="Proofreading correction demo">
@@ -67,9 +65,7 @@ export default function Home() {
           <div className="editor-bar"><span className="editor-dots"><i /><i /><i /></span><span>TEXT REVIEW</span></div>
           <div className="editor-body" dir="rtl">
             <div className="proof-typewriter" aria-label="Animated proofreading corrections">
-              <p className="proof-edit proof-edit-one"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">نفذت الكمية</span><span className="proof-erased">نفذت الكمية</span><span className="proof-typed-correct">نفدت الكمية</span><i aria-hidden="true" /></p>
-              <p className="proof-edit proof-edit-two"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">تم الإرسال</span><span className="proof-erased">تم الإرسال</span><span className="proof-typed-correct">أرسلنا</span><i aria-hidden="true" /></p>
-              <p className="proof-edit proof-edit-three"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">أنا كصانع محتوى</span><span className="proof-erased proof-erased-partial"><span>أنا </span><span className="proof-struck">كصانع</span><span> محتوى</span></span><span className="proof-typed-correct">أنا صانع محتوى</span><i aria-hidden="true" /></p>
+              {localizationLanguage === 'ar' ? <><p className="proof-edit proof-edit-one"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">نفذت الكمية</span><span className="proof-erased">نفذت الكمية</span><span className="proof-typed-correct">نفدت الكمية</span><i aria-hidden="true" /></p><p className="proof-edit proof-edit-two"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">تم الإرسال</span><span className="proof-erased">تم الإرسال</span><span className="proof-typed-correct">أرسلنا</span><i aria-hidden="true" /></p><p className="proof-edit proof-edit-three"><span className="proof-edit-label">يُكتب</span><span className="proof-typed-wrong">أنا كصانع محتوى</span><span className="proof-erased proof-erased-partial"><span>أنا </span><span className="proof-struck">كصانع</span><span> محتوى</span></span><span className="proof-typed-correct">أنا صانع محتوى</span><i aria-hidden="true" /></p></> : <><p className="proof-edit proof-edit-one"><span className="proof-edit-label">EDIT</span><span className="proof-typed-wrong">The report are ready</span><span className="proof-erased">The report are ready</span><span className="proof-typed-correct">The report is ready</span><i aria-hidden="true" /></p><p className="proof-edit proof-edit-two"><span className="proof-edit-label">EDIT</span><span className="proof-typed-wrong">The files was sent</span><span className="proof-erased">The files was sent</span><span className="proof-typed-correct">The files were sent</span><i aria-hidden="true" /></p><p className="proof-edit proof-edit-three"><span className="proof-edit-label">EDIT</span><span className="proof-typed-wrong">I am a content maker</span><span className="proof-erased">I am a content maker</span><span className="proof-typed-correct">I am a content creator</span><i aria-hidden="true" /></p></>}
             </div>
           </div>
         </div>
@@ -79,14 +75,14 @@ export default function Home() {
         <div className="proofreading-topline">
           <p className="eyebrow">{localizationLanguage === 'ar' ? 'التدقيق والتحرير' : 'PROOFREADING'}</p>
         </div>
-        <h2 id="proofreading-title"><span className="xb-shafigh">التدقيق والتحرير</span><span className="english-title">Proofreading</span></h2>
+        <h2 id="proofreading-title">{localizationLanguage === 'ar' ? <span className="xb-shafigh">التدقيق والتحرير</span> : <span className="english-title">Proofreading</span>}</h2>
         <p className="proofreading-description">{localizationLanguage === 'ar' ? 'أراجع النص حتى يسلم من الأخطاء' : 'I review every line until it is free from errors.'}</p>
       </div>
     </section>
     <section className="creation-journey" aria-labelledby="creation-title">
       <div className="creation-journey-copy">
-        <h2 id="creation-title"><span className="xb-shafigh">صناعة المحتوى</span><span className="english-title">Content Creation</span></h2>
-        <p className="creation-subtitle xb-shafigh" lang="ar" dir="rtl">من الفكرة إلى المنتج المرئي</p>
+        <h2 id="creation-title">{localizationLanguage === 'ar' ? <span className="xb-shafigh">صناعة المحتوى</span> : <span className="english-title">Content Creation</span>}</h2>
+        <p className="creation-subtitle xb-shafigh" lang={localizationLanguage === 'ar' ? 'ar' : 'en'} dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>{localizationLanguage === 'ar' ? 'من الفكرة إلى المنتج المرئي' : 'From an idea to a visual story'}</p>
       </div>
       <div className="journey-map" aria-label="Creative journey from brainstorming to feedback">
         <svg viewBox="0 0 720 430" role="img" aria-labelledby="journey-map-title journey-map-desc">
@@ -100,7 +96,7 @@ export default function Home() {
       </div>
     </section>
     <section id="work" className="work-section">
-      <div className="work-intro"><p className="eyebrow">{localizationLanguage === 'ar' ? 'إدارة منصات التواصل' : 'MANAGING DIGITAL CONTENT'}</p><h2><span className="xb-shafigh">إدارة منصات التواصل</span><span className="english-title">Managing Digital Content</span></h2><p>{localizationLanguage === 'ar' ? 'من التخطيط إلى النشر، أقدّم محتوى يربط الفكرة بالجمهور.' : 'From planning to publishing, I connect the idea with its audience.'}</p></div>
+      <div className="work-intro"><p className="eyebrow">{localizationLanguage === 'ar' ? 'إدارة منصات التواصل' : 'MANAGING DIGITAL CONTENT'}</p><h2>{localizationLanguage === 'ar' ? <span className="xb-shafigh">إدارة منصات التواصل</span> : <span className="english-title">Managing Digital Content</span>}</h2><p>{localizationLanguage === 'ar' ? 'من التخطيط إلى النشر، أقدّم محتوى يربط الفكرة بالجمهور.' : 'From planning to publishing, I connect the idea with its audience.'}</p></div>
       <div className="section-heading"><p className="eyebrow">{localizationLanguage === 'ar' ? 'أعمال مختارة / 02' : 'SELECTED WORK / 02'}</p></div>
       <div className="case-grid">
         <article className="case-card"><h2 className="case-title-above">Newroom<br /><em>Ideas</em></h2><div className="case-summary"><p className="eyebrow">{localizationLanguage === 'ar' ? 'استراتيجية محتوى · سرد قصصي' : 'CONTENT STRATEGY · STORYTELLING'}</p><p>I built a story-led content direction that turned bedroom challenges into helpful, searchable videos.</p><Button onClick={() => setActiveCase('newroom')} className="case-button">{localizationLanguage === 'ar' ? 'استكشف' : 'Explore case study'} <ArrowUpRight data-icon="inline-end" /></Button></div><div className="case-image-wrap"><img src="/case-studies/newroom-upload.png" alt="Newroom Ideas TikTok case study" className="case-image newroom-feature-image" /><div className="metric-bubble bubble-views"><strong>1.1M</strong><span>{localizationLanguage === 'ar' ? 'مشاهدة' : 'Views'}</span></div><div className="metric-bubble bubble-likes"><strong>22.3K</strong><span>{localizationLanguage === 'ar' ? 'إعجاب' : 'Likes'}</span></div><div className="metric-bubble bubble-shares"><strong>19.7K</strong><span>{localizationLanguage === 'ar' ? 'مشاركة' : 'Shares'}</span></div><span className="image-label">TIKTOK / 2025–26</span></div></article>

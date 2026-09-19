@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+/* English mode is genuinely LTR, including the live editing examples. */
+main[dir="ltr"] .proof-typewriter{font-family:Arial,Helvetica,sans-serif}
+main[dir="ltr"] .proof-typed-wrong,main[dir="ltr"] .proof-erased,main[dir="ltr"] .proof-typed-correct{right:auto;left:0;direction:ltr}
+main[dir="ltr"] .proof-edit-label{right:auto;left:0}
+main[dir="ltr"] .proof-edit i{right:auto;left:0}
+main[dir="ltr"] .localization-pair b{direction:ltr!important;align-self:flex-start}
 /* Keep the crossed-out original visible for the complete correction phase. */
 .proofreading-section .proof-editor .editor-body .proof-typewriter .proof-edit-one .proof-erased{animation:proof-keep-final-one 15s steps(1,end) infinite!important}
 .proofreading-section .proof-editor .editor-body .proof-typewriter .proof-edit-two .proof-erased{animation:proof-keep-final-two 15s steps(1,end) infinite!important}
