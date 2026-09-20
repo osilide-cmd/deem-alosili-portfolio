@@ -296,7 +296,7 @@ function Defs() {
           <circle className="cm-board-dot" cx="0" cy="-49" r="2.6" />
         </g>
         <marker id="cm-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1.5L8.5 5 1 8.5Z" fill="#B23B5A" /></marker>
-        <radialGradient id="cm-paper-grad" cx="50%" cy="42%" r="78%"><stop offset="0" stopColor="#FFF6DC" /><stop offset=".6" stopColor="#FFF2D6" /><stop offset="1" stopColor="#EED9A4" /></radialGradient>
+        <radialGradient id="cm-paper-grad" cx="50%" cy="42%" r="78%"><stop offset="0" stopColor="#FFF2D6" /><stop offset="1" stopColor="#FFF2D6" /></radialGradient>
         <filter id="cm-rough" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="3" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" /></filter>
         <filter id="cm-rough-sm" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="6" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" /></filter>
         <filter id="cm-paper" x="-4%" y="-4%" width="108%" height="108%" colorInterpolationFilters="sRGB">
@@ -305,17 +305,17 @@ function Defs() {
           <feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="2" seed="8" result="warpB" />
           <feDisplacementMap in="rag1" in2="warpB" scale="5" xChannelSelector="G" yChannelSelector="B" result="ragged" />
           <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="2" result="fine" />
-          <feColorMatrix in="fine" type="matrix" values="0 0 0 0 .38  0 0 0 0 .26  0 0 0 0 .1  0 0 0 .5 -.08" result="grainRaw" />
+          <feColorMatrix in="fine" type="matrix" values="0 0 0 0 .153  0 0 0 0 .259  0 0 0 0 .192  0 0 0 .4 -.08" result="grainRaw" />
           <feComposite in="grainRaw" in2="ragged" operator="in" result="grain" />
           <feTurbulence type="fractalNoise" baseFrequency=".007 .01" numOctaves="4" seed="12" result="blot" />
-          <feColorMatrix in="blot" type="matrix" values="0 0 0 0 .62  0 0 0 0 .42  0 0 0 0 .16  0 0 0 1.25 -.55" result="stainRaw" />
+          <feColorMatrix in="blot" type="matrix" values="0 0 0 0 .788  0 0 0 0 .635  0 0 0 0 .294  0 0 0 1.5 -.6" result="stainRaw" />
           <feComposite in="stainRaw" in2="ragged" operator="in" result="stain" />
           <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="1" seed="21" result="spots" />
-          <feColorMatrix in="spots" type="matrix" values="0 0 0 0 .42  0 0 0 0 .24  0 0 0 0 .08  0 0 0 10 -7.9" result="fox" />
+          <feColorMatrix in="spots" type="matrix" values="0 0 0 0 .698  0 0 0 0 .231  0 0 0 0 .353  0 0 0 6 -4.9" result="fox" />
           <feComposite in="fox" in2="ragged" operator="in" result="foxing" />
           <feMorphology in="ragged" operator="erode" radius="14" result="core" />
           <feGaussianBlur in="core" stdDeviation="18" result="coreSoft" />
-          <feFlood floodColor="#6F4313" floodOpacity=".5" result="burnColor" />
+          <feFlood floodColor="#C9A24B" floodOpacity=".85" result="burnColor" />
           <feComposite in="burnColor" in2="coreSoft" operator="out" result="burnRaw" />
           <feComposite in="burnRaw" in2="ragged" operator="in" result="burn" />
           <feMerge><feMergeNode in="ragged" /><feMergeNode in="stain" /><feMergeNode in="foxing" /><feMergeNode in="burn" /><feMergeNode in="grain" /></feMerge>
