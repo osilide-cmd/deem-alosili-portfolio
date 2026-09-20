@@ -3,17 +3,10 @@
 import { ArrowDownRight, ArrowUpRight, Check, Mail, Menu, MessageCircle, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { CreatorsMapSection } from '@/components/creators-map';
 
 const newroomMetrics = [['1.1M', 'Top video views'], ['22.3K', 'Total likes'], ['19.7K', 'Views in 365 days'], ['96.9%', 'Search traffic']];
 const arabicVidsMetrics = [['911.3K', 'Post views'], ['81.6K', 'Likes'], ['13.6K', 'Shares'], ['83.1%', 'For You traffic']];
-const routeImages: Record<string, string> = {
-  '01': '/case-studies/route-brainstorming.png',
-  '02': '/case-studies/route-scripting.png',
-  '03': '/case-studies/route-shooting.png',
-  '04': '/case-studies/route-production.png',
-  '05': '/case-studies/route-publishing.png',
-  '06': '/case-studies/route-feedback.png',
-};
 
 export default function Home() {
   const [activeCase, setActiveCase] = useState<'newroom' | 'arabicVids' | null>(null);
@@ -84,22 +77,7 @@ export default function Home() {
         <p className="proofreading-description">{localizationLanguage === 'ar' ? 'أراجع النص حتى يسلم من الأخطاء' : 'I review every line until it is free from errors.'}</p>
       </div>
     </section>
-    <section className="creation-journey" aria-labelledby="creation-title">
-      <div className="creation-journey-copy">
-        <h2 id="creation-title">{localizationLanguage === 'ar' ? <span className="xb-shafigh">صناعة المحتوى</span> : <span className="english-title">Content Creation</span>}</h2>
-        <p className="creation-subtitle xb-shafigh" lang={localizationLanguage === 'ar' ? 'ar' : 'en'} dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>{localizationLanguage === 'ar' ? 'من الفكرة إلى المنتج المرئي' : 'From an idea to a visual story'}</p>
-      </div>
-      <div className="journey-map" aria-label="Creative journey from brainstorming to feedback">
-        <svg viewBox="0 0 720 430" role="img" aria-labelledby="journey-map-title journey-map-desc">
-          <title id="journey-map-title">Creative content journey</title><desc id="journey-map-desc">A winding map connecting brainstorming, scripting, shooting, production, publishing, and feedback.</desc>
-          <path className="journey-path" d="M72 110 C155 40 234 182 314 102 S475 42 534 135 S658 218 580 282 S396 364 318 290 S170 365 92 304" />
-          <path className="journey-landmark landmark-star" d="M214 52l8 18 19 2-14 13 4 19-17-10-17 10 4-19-14-13 19-2z" />
-          <path className="journey-landmark landmark-flag" d="M588 70v44m0-44 29 10-29 10" />
-          <path className="journey-landmark landmark-spark" d="M490 336v-28m-14 14h28" />
-          {(localizationLanguage === 'ar' ? [[72,110,'01','نجيب أفكار'],[314,102,'02','نكتب'],[534,135,'03','نصور'],[580,282,'04','نمنتج'],[318,290,'05','ننشر'],[92,304,'06','نشوف التفاعل']] : [[72,110,'01','Brainstorming'],[314,102,'02','Scripting'],[534,135,'03','Shooting'],[580,282,'04','Production'],[318,290,'05','Publishing'],[92,304,'06','Feedback']]).map(([x,y,number,label]) => <g className="journey-stop" key={String(number)} transform={`translate(${x} ${y})`}><circle className="journey-path-break" r="35" /><image className="journey-icon" href={routeImages[number]} x="-29" y="-29" width="58" height="58" /><text y="-41" textAnchor="middle">{number}</text><text y="55" textAnchor="middle">{label}</text></g>)}
-        </svg>
-      </div>
-    </section>
+    <CreatorsMapSection lang={localizationLanguage} />
     <section id="work" className="work-section">
       <div className="work-intro"><p className="eyebrow">{localizationLanguage === 'ar' ? 'إدارة منصات التواصل' : 'SOCIAL MEDIA MANAGEMENT'}</p><h2>{localizationLanguage === 'ar' ? <span className="xb-shafigh">إدارة منصات التواصل</span> : <span className="english-title">Social Media Management</span>}</h2><p>{localizationLanguage === 'ar' ? 'من التخطيط إلى النشر، أقدّم محتوى يربط الفكرة بالجمهور.' : 'From planning to publishing, I connect the idea with its audience.'}</p></div>
       <div className="section-heading"><p className="eyebrow">{localizationLanguage === 'ar' ? 'أعمال مختارة / 02' : 'SELECTED WORK / 02'}</p></div>
