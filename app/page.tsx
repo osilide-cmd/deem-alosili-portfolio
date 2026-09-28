@@ -93,9 +93,13 @@ export default function Home() {
       </div>
       <div className="ugc-video-card">
         <div className="ugc-video-screen">
-          <blockquote className="tiktok-embed" cite="https://www.tiktok.com/@adv_ai/video/7676237718224899349" data-video-id="7676237718224899349" data-embed-from="oembed" style={{ maxWidth: '605px', minWidth: '325px' }}>
-            <section><a target="_blank" rel="noreferrer" title="@adv_ai" href="https://www.tiktok.com/@adv_ai?refer=embed">@adv_ai</a></section>
-          </blockquote>
+          <span className="ugc-island" aria-hidden="true" />
+          <div className="ugc-video-inner">
+            <blockquote className="tiktok-embed" cite="https://www.tiktok.com/@adv_ai/video/7676237718224899349" data-video-id="7676237718224899349" data-embed-from="oembed" style={{ maxWidth: '605px', minWidth: '325px' }}>
+              <section><a target="_blank" rel="noreferrer" title="@adv_ai" href="https://www.tiktok.com/@adv_ai?refer=embed">@adv_ai</a></section>
+            </blockquote>
+          </div>
+          <span className="ugc-home-indicator" aria-hidden="true" />
         </div>
         <span className="ugc-video-label">TIKTOK · UGC</span>
       </div>
