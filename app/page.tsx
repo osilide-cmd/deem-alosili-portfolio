@@ -30,6 +30,14 @@ export default function Home() {
       document.head.appendChild(script);
     }
   }, []);
+  useEffect(() => {
+    if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.tiktok.com/embed.js';
+      document.body.appendChild(script);
+    }
+  }, []);
   const scrollToWork = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   return <main dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>
     <nav className="site-nav"><div className="nav-links"><a href="#creation-title">{localizationLanguage === 'ar' ? 'الأعمال' : 'Work'}</a><a href="#contact">{localizationLanguage === 'ar' ? 'تواصل معي' : 'Contact me'}</a></div><button type="button" className="site-language-toggle" onClick={() => setLocalizationLanguage(localizationLanguage === 'ar' ? 'en' : 'ar')}>{localizationLanguage === 'ar' ? 'ENG' : 'AR'}</button><Button variant="ghost" size="icon" className="menu-button" aria-label="Open menu"><Menu /></Button></nav>
@@ -78,6 +86,20 @@ export default function Home() {
       </div>
     </section>
     <CreatorsMapSection lang={localizationLanguage} />
+    <section id="ugc" className="ugc-section" aria-labelledby="ugc-title">
+      <div className="ugc-intro">
+        <h2 id="ugc-title">{localizationLanguage === 'ar' ? <span className="xb-shafigh">تصوير المنتجات UGC Style</span> : <span className="english-title">Product Filming — UGC Style</span>}</h2>
+        <p>{localizationLanguage === 'ar' ? 'أنتج فيديوهات UGC طبيعية تعرض المنتج بأسلوب يشبه تجربة حقيقية، تشد المشاهد وتكسب ثقته.' : 'I produce natural UGC videos that present a product the way a real customer would — content that stops the scroll and earns trust.'}</p>
+      </div>
+      <div className="ugc-video-card">
+        <div className="ugc-video-screen">
+          <blockquote className="tiktok-embed" cite="https://www.tiktok.com/@adv_ai/video/7676237718224899349" data-video-id="7676237718224899349" data-embed-from="oembed" style={{ maxWidth: '605px', minWidth: '325px' }}>
+            <section><a target="_blank" rel="noreferrer" title="@adv_ai" href="https://www.tiktok.com/@adv_ai?refer=embed">@adv_ai</a></section>
+          </blockquote>
+        </div>
+        <span className="ugc-video-label">TIKTOK · UGC</span>
+      </div>
+    </section>
     <section id="work" className="work-section">
       <div className="work-intro"><p className="eyebrow">{localizationLanguage === 'ar' ? 'إدارة منصات التواصل' : 'SOCIAL MEDIA MANAGEMENT'}</p><h2>{localizationLanguage === 'ar' ? <span className="xb-shafigh">إدارة منصات التواصل</span> : <span className="english-title">Social Media Management</span>}</h2><p>{localizationLanguage === 'ar' ? 'من التخطيط إلى النشر، أقدّم محتوى يربط الفكرة بالجمهور.' : 'From planning to publishing, I connect the idea with its audience.'}</p></div>
       <div className="section-heading"><p className="eyebrow">{localizationLanguage === 'ar' ? 'أعمال مختارة / 02' : 'SELECTED WORK / 02'}</p></div>
