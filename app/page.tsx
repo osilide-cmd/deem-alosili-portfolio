@@ -30,14 +30,6 @@ export default function Home() {
       document.head.appendChild(script);
     }
   }, []);
-  useEffect(() => {
-    if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.tiktok.com/embed.js';
-      document.body.appendChild(script);
-    }
-  }, []);
   const scrollToWork = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   return <main dir={localizationLanguage === 'ar' ? 'rtl' : 'ltr'}>
     <nav className="site-nav"><div className="nav-links"><a href="#creation-title">{localizationLanguage === 'ar' ? 'الأعمال' : 'Work'}</a><a href="#contact">{localizationLanguage === 'ar' ? 'تواصل معي' : 'Contact me'}</a></div><button type="button" className="site-language-toggle" onClick={() => setLocalizationLanguage(localizationLanguage === 'ar' ? 'en' : 'ar')}>{localizationLanguage === 'ar' ? 'ENG' : 'AR'}</button><Button variant="ghost" size="icon" className="menu-button" aria-label="Open menu"><Menu /></Button></nav>
@@ -103,9 +95,7 @@ export default function Home() {
         <div className="ugc-video-screen">
           <span className="ugc-island" aria-hidden="true" />
           <div className="ugc-video-inner">
-            <blockquote className="tiktok-embed" cite="https://www.tiktok.com/@adv_ai/video/7676237718224899349" data-video-id="7676237718224899349" data-embed-from="oembed" style={{ maxWidth: '605px', minWidth: '325px' }}>
-              <section><a target="_blank" rel="noreferrer" title="@adv_ai" href="https://www.tiktok.com/@adv_ai?refer=embed">@adv_ai</a></section>
-            </blockquote>
+            <iframe src="https://www.tiktok.com/embed/v2/7676237718224899349?autoplay=0" title={localizationLanguage === 'ar' ? 'مقطع تصوير منتجات بأسلوب UGC' : 'Product filming UGC style video'} allow="encrypted-media;" allowFullScreen loading="lazy" />
           </div>
           <span className="ugc-home-indicator" aria-hidden="true" />
         </div>
